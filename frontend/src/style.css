@@ -1,0 +1,178 @@
+@import url("https://fonts.google.com/specimen/Roboto");
+
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+
+}
+
+h1 {}
+
+.session-header {
+
+    padding: 20px;
+}
+
+
+
+.player-bank {
+    background-color: lightgoldenrodyellow;
+    border-radius: 12px;
+    border: 2px solid #FFBB70;
+    padding: 20px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.player-bank-header {
+    background-color: aquamarine;
+    border-radius: 6px;
+    padding: 10px;
+    border: 2px solid #FFBB70;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.player-bank-players-list {
+    padding-left: 12px;
+    padding-right: 12px;
+
+    display: grid;
+
+}
+
+.live-interval {
+    background-color: antiquewhite;
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #FFBB70;
+    margin-bottom: 10px;
+
+    display: flex;
+}
+
+.live-interval-time-block {
+    background-color: blanchedalmond;
+    width: 10%;
+    border: 2px solid #FFBB70;
+    border-radius: 12px;
+    padding: 10px;
+
+}
+
+.live-interval-courts-block {
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.live-court {
+    background-color: lightgoldenrodyellow;
+    border-radius: 12px;
+    border: 2px solid #FFBB70;
+    width: 20%;
+    padding: 2%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.live-court-header {
+    background-color: aquamarine;
+    border-radius: 6px;
+    padding: 10px;
+    border: 2px solid #FFBB70;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 12px;
+
+}
+
+.live-court-players-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.live-player {
+    background-color: aliceblue;
+    border-radius: 6px;
+    height: 40px;
+    width: min(100%, 200px);
+    margin-bottom: 8px;
+}
+
+
+
+
+
+.past-interval {
+    background-color: antiquewhite;
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #FFBB70;
+    margin-bottom: 10px;
+
+    display: flex;
+}
+
+.past-interval-time-block {
+    background-color: blanchedalmond;
+    width: 10%;
+    border: 2px solid #FFBB70;
+    border-radius: 12px;
+    padding: 10px;
+
+}
+
+.past-interval-courts-block {
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.past-court {
+    background-color: lightgoldenrodyellow;
+    border-radius: 12px;
+    border: 2px solid #FFBB70;
+    width: 20%;
+    padding: 2%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.past-court-header {
+    background-color: aquamarine;
+    border-radius: 6px;
+    padding: 10px;
+    border: 2px solid #FFBB70;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 12px;
+
+}
+
+.past-court-players-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.past-player {
+    background-color: aliceblue;
+    border-radius: 6px;
+    height: 40px;
+    width: min(100%, 200px);
+    margin-bottom: 8px;
+}
