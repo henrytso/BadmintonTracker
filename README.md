@@ -7,5 +7,5 @@ Once signed in, your name shows up in the Player Bank, as long as you have not s
 ![Badminton Tracker: Session Page](/resources/badminton-tracker.png)
 
 ## Tech Stack
-Backend: Python, Flask, SQL
+Backend: Python, Flask, SQL \
 Frontend: JavaScript, Node, React
