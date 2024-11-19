@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
 
-// import PastInterval from './PastInterval';
 import LiveInterval from './LiveInterval';
 import PlayerBank from './PlayerBank';
 import SessionHeader from './SessionHeader';
@@ -33,22 +32,6 @@ function App() {
                 />
             }
 
-            {/* <div>
-                {sessionData &&
-                    sessionData.intervals
-                        .filter(interval => interval.id < sessionData.liveIntervalId)
-                        .map(interval =>
-                            <PastInterval
-                                key={interval.id}
-                                id={interval.id}
-                                start={interval.start}
-                                end={interval.end}
-                                courtIds={sessionData.courtIds}
-                            />
-                        )
-                }
-            </div> */}
-
             <PlayerBank
                 key={"bank"}
                 id={"bank"}
@@ -78,15 +61,15 @@ function App() {
     function handleDragEnd(event) {
         const { active, over } = event;
 
-        if (over === null) {
+        if (over === null || active.data.current.parentId === over.id) {
             return;
         }
 
-        if (active.data.current.parentId !== over.id) {
-            const playerId = active.id;
-            const [oldIntervalId, oldCourtId] = active.data.current.parentId.split('-').map(s => parseInt(s));
-            const [newIntervalId, newCourtId] = over.id.split('-').map(s => parseInt(s));
+        const playerId = active.id;
+        const [oldIntervalId, oldCourtId] = active.data.current.parentId.split('-').map(s => parseInt(s));
+        const [newIntervalId, newCourtId] = over.id.split('-').map(s => parseInt(s));
 
+        const tryRemoveSignup = async () => {
             const removeSignup = async (intervalId, courtId) => {
                 const response = await fetch(`http://localhost:8000/api/signups/`, {
                     method: "POST",
@@ -97,10 +80,20 @@ function App() {
                         "remove": true,
                     })
                 });
-                const data = await response.json();
-                console.log(data);
+
+                if (!response.ok) {
+                    const data = await response.json();
+                    const errorMsg = data.error;
+                    throw new Error(errorMsg);
+                }
             }
 
+            if (active.data.current.parentId !== "bank") {
+                await removeSignup(oldIntervalId, oldCourtId);
+            }
+        }
+
+        const tryCreateSignup = async () => {
             const createSignup = async (intervalId, courtId) => {
                 const response = await fetch(`http://localhost:8000/api/signups/`, {
                     method: "POST",
@@ -111,28 +104,27 @@ function App() {
                         "remove": false,
                     })
                 });
-                const data = await response.json();
-                console.log(data);
-            }
 
-            const tryRemoveSignup = async () => {
-                if (active.data.current.parentId !== "bank") {
-                    removeSignup(oldIntervalId, oldCourtId);
+                if (!response.ok) {
+                    const data = await response.json();
+                    const errorMsg = data.error;
+                    throw new Error(errorMsg);
                 }
-            }
+            };
 
-            const tryCreateSignup = async () => {
-                if (over.id !== "bank") {
-                    createSignup(newIntervalId, newCourtId)
-                }
+            if (over.id !== "bank") {
+                await createSignup(newIntervalId, newCourtId);
             }
-
-            // Make sure DB cursors don't overlap if removing and creating simultaneously
-            tryRemoveSignup()
-                .then(() => tryCreateSignup())
-                .then(() => fetchSessionData())
-                .then(() => setRerenderSwitch(!rerenderSwitch));
         }
+
+        // Only need to remove old signup after a successful create.
+        // e.g. Unable to create signup in a full 4-person court -> don't remove previous signup.
+        tryCreateSignup()
+            .then(() => tryRemoveSignup())
+            .then(() => setRerenderSwitch(!rerenderSwitch))
+            .catch((error) => {
+                console.error(error);
+            })
     }
 }
 
