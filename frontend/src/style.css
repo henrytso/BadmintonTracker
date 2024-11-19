@@ -106,6 +106,8 @@ h1 {}
     height: 40px;
     width: min(100%, 200px);
     margin-bottom: 8px;
+
+    touch-action: none;
 }
 
 
