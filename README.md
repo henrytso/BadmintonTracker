@@ -12,20 +12,19 @@ Frontend: JavaScript, Node, React
 
 ## Why Badminton Tracker?
 
-### Context
-In New York City, free badminton open-play is rare and only available at a few Recreation Center locations. The current way of maintaining equitable play for the high volume of attendees is as follows:
+In New York City, free badminton open-play is available at a few Recreation Centers. The current way of maintaining equitable play for attendees is as follows:
 * Players may sign their names on a list, when not playing
 * Every 15 minutes, an alarm goes off
 * The next 16 players on the list play for the next 15 minutes
 
-### Problem
+### The Problem
 Equitable play is rarely enforceable:
-* Whoever runs faster or ends their game closer to the clipboard is able to sign up for an earlier slot and play more often
-* Players often sign 4 names at a time on the clipboard (those who they want to play with on the same court). This means even if you are 5th in line, you may not be able to play at all in the next interval - you would wait two intervals (30 minutes) before playing again. This happens **repeatedly** over the course of a session - many players play every other interval, where others play every three intervals.
+* Whoever runs faster or ends their game closer to the clipboard is able to sign up for an earlier slot and consistently play more often
+* Players often sign 4 names at a time on the clipboard (those who they want to play with on the same court). This means even if you are 5th in line, you may not be able to play at all in the next interval - you would wait two intervals (30 minutes) before playing again. This happens **repeatedly** over the course of a session - certain players play every other interval, where others play every three intervals.
 
 ### Reframing the Problem of Equity
 If 32 players show up to a session, each player can play exactly 50% of the time. If 24 players show up, each player plays 67% of the time (play 2 intervals, wait 1).
-We first acknowledge that this is incredibly unnatural to enforce from a human perspective. Then, we can accept the tangible utility of Badminton Tracker tracking each player's `play_density = minutes_played / minutes_present`. Any community-scale event is only fair for its participants through implicit rules of respect and whether individuals uphold these implicit rules.
+We first acknowledge that this is incredibly unnatural to enforce from a human perspective. Then, we can accept the tangible utility of Badminton Tracker tracking each player's `play_density = minutes_played / minutes_present`. For a community-scale event, it is only fair for its participants through implicit rules of respect and whether individuals uphold these them.
 
 ### Intended Use
 Badminton Tracker is built to be an tool that members **want** to opt-into; "I am happy to play my fair share of time and want for others to have the same opportunity." A player's `play_density` is not the focus of attention - it is hidden by default. \
