@@ -30,10 +30,8 @@ We first acknowledge that this is incredibly unnatural to enforce from a human p
 ### Intended Use
 Badminton Tracker is built to be an tool that members **want** to opt-into; "I am happy to play my fair share of time and want for others to have the same opportunity." A player's `play_density` is not the focus of attention - it is hidden by default. \
 \
-Imagined use case: Player A (who has played 1/3 intervals) says to Player B (who has played 2/3 intervals), "Excuse me, I noticed my `play_density` is 33%, but your `play_density` is 67%. I was unable to sign up for next interval, but you did, which would make my `play_density` 25% and yours 75% after next interval. Can I take your place for the next interval?" If I were Player B, I am happy to let Player A play in my place if it upholds the ideal integrity of our open-play.
-
-
-### Solutions - solvable by Badminton Tracker
+Imagined use case: \
+Player A (who has played 1/3 intervals) says to Player B (who has played 2/3 intervals), "Excuse me, I noticed my `play_density` is 33%, but your `play_density` is 67%. I was unable to sign up for next interval, but you did, which would make my `play_density` 25% and yours 75% after next interval. Can I take your place for the next interval?" If I were Player B, I am happy to let Player A play in my place if it upholds the ideal integrity of our open-play.
 
 ### Extending Badminton Tracker
 * Suggested signup priority queue - also using past session data (e.g. last session, this player was unlucky and only played 30 / 75 minutes they were present)
