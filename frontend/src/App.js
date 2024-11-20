@@ -11,13 +11,13 @@ function App() {
     const [sessionData, setSessionData] = useState(null);
     const [rerenderSwitch, setRerenderSwitch] = useState(false);
 
-    const fetchSessionData = async () => {
-        const response = await fetch(`http://localhost:8000/api/v2/sessiondata/${sessionId}/`);
-        const data = await response.json();
-        setSessionData(data);
-    };
-
     useEffect(() => {
+        const fetchSessionData = async () => {
+            const response = await fetch(`http://localhost:8000/api/v2/sessiondata/${sessionId}/`);
+            const data = await response.json();
+            setSessionData(data);
+        };
+
         fetchSessionData();
     }, []);
 
