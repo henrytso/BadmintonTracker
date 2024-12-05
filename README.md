@@ -24,7 +24,6 @@ Equitable play is rarely enforceable:
 
 ### Reframing the Problem of Equity
 If 32 players show up to a session, each player can play exactly 50% of the time. If 24 players show up, each player plays 67% of the time (play 2 intervals, wait 1).
-We first acknowledge that this is incredibly unnatural to enforce from a human perspective. Then, we can accept the tangible utility of Badminton Tracker tracking each player's `play_density = minutes_played / minutes_present`. For a community-scale event, it is only fair for its participants through implicit rules of respect and whether individuals uphold these them.
 
 ### Intended Use
 Badminton Tracker is built to be an tool that members **want** to opt-into; "I am happy to play my fair share of time and want for others to have the same opportunity." A player's `play_density` is not the focus of attention - it is hidden by default. \
